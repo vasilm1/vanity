@@ -146,7 +146,8 @@ __device__ void ge25519_scalarmult(ge25519 *r, const uint8_t *scalar, const ge25
     ge25519 temp;
     int i, j;
     
-    fe25519_copy(&temp, base);
+    // Copy the base point
+    temp = *base;
     
     // Double-and-add scalar multiplication
     for (i = 0; i < 32; i++) {
